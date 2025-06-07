@@ -2,13 +2,13 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
-      - "Dockerfile"
-      - "index.js"
-      - "package.json"
+      - 'Dockerfile'
+      - 'index.js'
+      - 'package.json'
   pull_request:
-    branches: [main]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -38,10 +38,10 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/rdsg:latest
+            ghcr.io/${{ github.repository_owner }}/ws:latest
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
-            org.opencontainers.image.description=Node.js App
+            org.opencontainers.image.description=Websocket Server
             org.opencontainers.image.licenses=MIT
           cache-from: type=gha
           cache-to: type=gha,mode=max
